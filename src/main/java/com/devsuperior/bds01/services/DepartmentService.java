@@ -23,5 +23,12 @@ public class DepartmentService {
 		return lista.stream().map(x -> new DepartmentDTO(x)).collect(Collectors.toList());
 		
 	}
+	
+public List<DepartmentDTO> findAllById () {
+		
+		List<Department> lista = repository.findAll(Sort.by("id"));
+		return lista.stream().map(x -> new DepartmentDTO(x)).collect(Collectors.toList());
+		
+	}
 
 }

@@ -33,4 +33,17 @@ public class DepartmentControllerIT {
 		result.andExpect(jsonPath("$[1].name").value("Sales"));
 		result.andExpect(jsonPath("$[2].name").value("Training"));
 	}
+	
+	@Test
+	public void findAllShouldReturnAllResourcesSortedById() throws Exception {
+		ResultActions resultActions =
+				mockMvc.perform(get("/departments")
+						.contentType(MediaType.APPLICATION_JSON));
+		resultActions.andExpect(status().isOk());
+		resultActions.andExpect(jsonPath("$[0].id").value(2));
+		resultActions.andExpect(jsonPath("$[1].id").value(1));
+		resultActions.andExpect(jsonPath("$[2].id").value(3));
+	}
+	
+	
 }
