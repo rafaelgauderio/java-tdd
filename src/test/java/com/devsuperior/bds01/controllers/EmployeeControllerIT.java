@@ -45,7 +45,7 @@ public class EmployeeControllerIT {
 	@Test
 	public void insertShouldInsertResource() throws Exception {
 
-		EmployeeDTO dto = new EmployeeDTO(null, "Joaquim", "joaquim@gmail.com", 1L);
+		EmployeeDTO dto = new EmployeeDTO(null, "Rafael", "rafael@gmail.com", 1L);
 		String jsonBody = objectMapper.writeValueAsString(dto);
 		
 		ResultActions result =
@@ -56,8 +56,8 @@ public class EmployeeControllerIT {
 		
 		result.andExpect(status().isCreated());
 		result.andExpect(jsonPath("$.id").exists());
-		result.andExpect(jsonPath("$.name").value("Joaquim"));
-		result.andExpect(jsonPath("$.email").value("joaquim@gmail.com"));
+		result.andExpect(jsonPath("$.name").value("Rafael"));
+		result.andExpect(jsonPath("$.email").value("rafael@gmail.com"));
 		result.andExpect(jsonPath("$.departmentId").value(1L));
 	}	
 }
