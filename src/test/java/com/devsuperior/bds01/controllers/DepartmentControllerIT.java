@@ -31,7 +31,8 @@ public class DepartmentControllerIT {
 		result.andExpect(status().isOk());
 		result.andExpect(jsonPath("$[0].name").value("Management"));
 		result.andExpect(jsonPath("$[1].name").value("Sales"));
-		result.andExpect(jsonPath("$[2].name").value("Training"));
+		result.andExpect(jsonPath("$[2].name").value("TI"));
+		result.andExpect(jsonPath("$[3].name").value("Training"));
 	}
 	
 	@Test
@@ -42,7 +43,8 @@ public class DepartmentControllerIT {
 		resultActions.andExpect(status().isOk());
 		resultActions.andExpect(jsonPath("$[0].id").value(2));
 		resultActions.andExpect(jsonPath("$[1].id").value(1));
-		resultActions.andExpect(jsonPath("$[2].id").value(3));
+		resultActions.andExpect(jsonPath("$[2].id").value(4));
+		resultActions.andExpect(jsonPath("$[3].id").value(3));
 	}
 	
 	
